@@ -1,0 +1,94 @@
+/* WeatherDetails.scss */
+@import url('https://fonts.googleapis.com/css2?family=Lumanosimo&display=swap');
+
+.loading{
+    font-family: 'Lumanosimo', cursive;
+    color: whitesmoke;
+}
+
+.weather-details-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+        justify-content: center; /* Center cards on smaller screens */
+    }
+}
+
+.weather-card {
+    background-color: linear-gradient(to right, rgb(8, 8, 8), rgb(32, 40, 36));
+    color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Lumanosimo', cursive;
+    padding: 20px;
+    margin: 20px;
+    max-width: 300px;
+    min-width: 250px;
+    width: calc(33.33% - 40px);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .weather-icon {
+        font-size: 48px;
+        margin-bottom: 10px;
+    }
+
+    .temperature {
+        font-size: 32px;
+        font-weight: bold;
+    }
+
+    .location {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%; /* Set the card width to 100% on smaller screens */
+    }
+}
+
+/* Animation for card entrance */
+.weather-card-enter {
+    transform: scale(0.5);
+    opacity: 0;
+}
+
+.weather-card-enter-active {
+    transform: scale(1);
+    opacity: 1;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Animation for card exit */
+.weather-card-exit {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.weather-card-exit-active {
+    transform: scale(0.5);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.weather-card-group {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+
+    @media (max-width: 768px) {
+        align-items: center; /* Center cards on smaller screens */
+    }
+}
